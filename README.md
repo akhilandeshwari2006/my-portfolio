@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom color palette for grayish-black theme */
+    :root {
+      --color-bg-light: #f9fafb;
+      --color-bg-dark: #1f2937; /* gray-800 */
+      --color-bg-darker: #111827; /* gray-900 */
+      --color-text-light: #d1d5db; /* gray-300 */
+      --color-text-dark: #f3f4f6; /* gray-100 */
+      --color-accent: #3b82f6; /* blue-500 */
+      --color-nav-bg: #2c3e50; /* slightly lighter and highlighted nav background */
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-bg-light);
+      color: var(--color-bg-darker);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+    .dark-theme {
+      background-color: var(--color-bg-darker);
+      color: var(--color-text-light);
+    }
+    a {
+      color: var(--color-accent);
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #60a5fa; /* blue-400 */
+    }
+    /* Navigation bar background */
+    nav {
+      background-color: var(--color-nav-bg);
+    }
+    /* Animation for sliding up */
+    .slide-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .slide-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Fade edges */
+    main.container {
+      position: relative;
+      overflow: hidden;
+    }
+    main.container::before,
+    main.container::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 50px;
+      pointer-events: none;
+      z-index: 10;
+    }
+    main.container::before {
+      top: 0;
+      background: linear-gradient(to bottom, var(--color-bg-light), transparent);
+    }
+    main.container::after {
+      bottom: 0;
+      background: linear-gradient(to top, var(--color-bg-light), transparent);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <!-- Navigation -->
+  <nav class="text-gray-100 shadow-md">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#home" class="text-2xl font-bold tracking-wide hover:text-blue-400">MyPortfolio</a>
+      <ul class="hidden md:flex space-x-8 font-semibold">
+        <li><a href="#about" class="hover:text-blue-400">About Me</a></li>
+        <li><a href="#education" class="hover:text-blue-400">Educational Qualification</a></li>
+        <li><a href="#technical-skills" class="hover:text-blue-400">Technical Skills</a></li>
+        <li><a href="#professional-skills" class="hover:text-blue-400">Professional Skills</a></li>
+        <li><a href="#professional-enhancements" class="hover:text-blue-400">Professional Enhancements</a></li>
+        <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+      </ul>
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="menu-btn" aria-label="Toggle menu" class="focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden bg-gray-800 text-gray-100 px-6 py-4 space-y-4 md:hidden">
+      <a href="#about" class="block hover:text-blue-400 font-semibold">About Me</a>
+      <a href="#education" class="block hover:text-blue-400 font-semibold">Educational Qualification</a>
+      <a href="#technical-skills" class="block hover:text-blue-400 font-semibold">Technical Skills</a>
+      <a href="#professional-skills" class="block hover:text-blue-400 font-semibold">Professional Skills</a>
+      <a href="#professional-enhancements" class="block hover:text-blue-400 font-semibold">Professional Enhancements</a>
+      <a href="#contact" class="block hover:text-blue-400 font-semibold">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home" class="flex-grow bg-gradient-to-r from-gray-800 via-gray-900 to-black text-gray-100 flex flex-col justify-center items-center text-center px-6 py-32">
+    <h1 class="text-6xl md:text-7xl font-extrabold mb-8">Tatipally Akhilandeshwari </h1>
+    <p class="text-2xl md:text-3xl max-w-xl mb-16">A passionate developer crafting beautiful and functional web experiences.</p>
+    <div class="space-x-6 text-2xl">
+      <!-- Social Icons - replace href with your links -->
+      <a href=" akhilandeshwari2226@gmail.com" aria-label="Gmail" class="hover:text-blue-400"><i class="fas fa-envelope"></i></a>
+      <a href="www.linkedin.com/in/akhilandeshwari-tatipally" aria-label="LinkedIn" class="hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-6 py-16 space-y-20 max-w-5xl">
+    <!-- About Me -->
+    <section id="about" class="scroll-mt-20 slide-up">
+      <h2 class="text-4xl font-bold mb-6 border-b-4 border-blue-500 inline-block pb-2">About Me</h2>
+      <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+        <!-- Replace this text with your own about me content -->
+        Hello! A passionate technical and determined Computer science and machine learning student looking 
+        forward to enhance my professional skills, capabilities and knowledge in a dynamic work 
+        environment and learn from experienced professionals and expand my expertise in .
+      </p>
+    </section>
+
+    <!-- Educational Qualification -->
+    <section id="education" class="scroll-mt-20 slide-up">
+      <h2 class="text-4xl font-bold mb-6 border-b-4 border-blue-500 inline-block pb-2">Educational Qualification</h2>
+      <div class="space-y-6 text-gray-700 dark:text-gray-300">
+        <div>
+          <h3 class="text-2xl font-semibold mb-2">B. Tech in Computer Science and Engineering with specialization in  Artificial Intelligence and Machine Learning</h3>
+          <p> G.Narayanamma Science and Engineering Institute of Technology and Science ,Hyderabad .</p>
+        </div>
+        <div>
+          <h3 class="text-2xl font-semibold mb-2">Diploma in Computer Science and Engineering                                      
+            (SBTET)</h3>
+          <p>Megha Insitute of Engineering and of Technology for Women , Edulabad  </p>
+          <p>  CGPA :9.44</p>
+        </div>
+        <div>
+          <h3 class="text-2xl font-semibold mb-2">10TH Grade(SSC)  </h3>
+          <p>  Pudami High School </p>
+        
+          <p>    CGPA :10</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section id="technical-skills" class="scroll-mt-20 slide-up">
+      <h2 class="text-4xl font-bold mb-6 border-b-4 border-blue-500 inline-block pb-2">Technical Skills</h2>
+      <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+        <li> Proficient in Java,HTML, CSS, JavaScript, PHP</li>
+        <li>Familiar  with C, C++, Python,Analysis, Designing</li>
+        <li>Good at Time Management ,Task Management  </li>
+      </ul>
+    </section>
+
+    <!-- Professional Skills -->
+    <section id="professional-skills" class="scroll-mt-20 slide-up">
+      <h2 class="text-4xl font-bold mb-6 border-b-4 border-blue-500 inline-block pb-2">Professional Skills</h2>
+      <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+        <li>Strong communication and teamwork abilities.</li>
+        <li>Project management and problem-solving skills.</li>
+        <li>Adaptability and continuous learning mindset.</li>
+      </ul>
+    </section>
+
+    <!-- Professional Enhancements -->
+    <section id="professional-enhancements" class="scroll-mt-20 slide-up">
+      <h2 class="text-4xl font-bold mb-6 border-b-4 border-blue-500 inline-block pb-2">Professional Enhancements</h2>
+      <div class="space-y-6 text-gray-700 dark:text-gray-300">
+        <h3 class="text-2xl font-semibold mb-2">Internships</h3>
+        <p>Internship on Web Development by Prodigy  
+            InfoTech  </p>
+      </div>
+      <div>
+        <h3 class="text-2xl font-semibold mb-2">Certifications
+
+        </h3>
+        <p>Certificate on Generative AI by GUVI Geek </p>
+        <p> Certificate on AI Foundation by Hexart.in </p>
+        <p> Certification on Web Development by IBM  </p>
+        <p>Certification on SQL v/s NoSQL by Infosys Springboard </p>
+      </div>
+      <div>
+        
+      </div>
+    </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="scroll-mt-20 slide-up">
+      <h2 class="text-4xl font-bold mb-6 border-b-4 border-blue-500 inline-block pb-2">Contact</h2>
+      <p class="text-gray-700 dark:text-gray-300 mb-4">Feel free to reach out to me via email or social media.</p>
+      <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+        <li><i class="fas fa-envelope mr-2"></i>akhilandeshwari2226@gmail.com   </li>
+        <li><i class="fas fa-phone mr-2"></i> +91 9381882110 </li>
+        <li><i class="fas fa-map-marker-alt mr-2"></i> Hyderabad, India</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-100 text-center py-6 mt-auto">
+    <p>© 2025 akhilandeshwari-tatipally. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Scroll animation for slide-up effect that toggles on every scroll
+    const slideElements = document.querySelectorAll('.slide-up');
+    const slideInOnScroll = () => {
+      slideElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        } else {
+          el.classList.remove('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', slideInOnScroll);
+    window.addEventListener('load', slideInOnScroll);
+  </script>
+</body>
+</html>
